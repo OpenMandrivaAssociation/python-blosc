@@ -12,6 +12,7 @@ License:	BSD
 Group:		Development/Python
 Url:		http://pypi.python.org/pypi/blosc/
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
+BuildRequires:	python-devel
 
 %description
 Blosc is a high performance compressor optimized for binary data.
