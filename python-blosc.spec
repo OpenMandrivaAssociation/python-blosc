@@ -1,7 +1,12 @@
 %define	module	blosc
 %define name	python-%{module}
-%define version 1.0.3
-%define release %mkrel 1
+%define version 1.0.4
+%define rel		1
+%if %mdkversion < 201100
+%define release %mkrel %{rel}
+%else
+%define	release %{rel}
+%endif
 
 Summary:	Blosc data compressor
 Name:		%{name}
@@ -25,11 +30,12 @@ Blosc is a high performance compressor optimized for binary data.
 
 %install
 %__rm -rf %{buildroot}
-PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot} --record=FILE_LIST
+PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 
 %clean
 %__rm -rf %{buildroot}
 
-%files -f FILE_LIST
+%files
 %defattr(-,root,root)
-%doc README.txt LICENSES/BLOSC.txt
+%doc LICENSES/BLOSC.txt
+%py_platsitedir/%{module}*
