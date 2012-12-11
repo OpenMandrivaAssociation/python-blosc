@@ -39,3 +39,14 @@ PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
 %defattr(-,root,root)
 %doc LICENSES/BLOSC.txt
 %py_platsitedir/%{module}*
+
+
+%changelog
+* Fri Sep 14 2012 Lev Givon <lev@mandriva.org> 1.0.4-1
++ Revision: 816944
+- Update to 1.0.4.
+
+* Thu Dec 08 2011 Lev Givon <lev@mandriva.org> 1.0.3-1
++ Revision: 739181
+- imported package python-blosc
+
