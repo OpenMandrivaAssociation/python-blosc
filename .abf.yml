@@ -1,2 +1,4 @@
+removed_sources:
+  blosc-1.0.4.tar.gz: 263c54745e5668349d2a7ca0e648554c7b87b737
 sources:
-  "blosc-1.0.4.tar.gz": 263c54745e5668349d2a7ca0e648554c7b87b737
+  blosc-1.2.3.tar.gz: 019c1512024fe2c17f45a0e2b7ec9e21f3e573c6
