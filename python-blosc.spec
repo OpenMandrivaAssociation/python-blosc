@@ -8,7 +8,7 @@ Summary:	Blosc data compressor
 
 Name:		python-%{module}
 Version:	1.2.3
-Release:	1
+Release:	2
 Source0:	http://pypi.python.org/packages/source/b/blosc/blosc-%{version}.tar.gz
 License:	BSD
 Group:		Development/Python
