@@ -12,7 +12,7 @@ Release:	2
 Source0:	http://pypi.python.org/packages/source/b/blosc/blosc-%{version}.tar.gz
 License:	BSD
 Group:		Development/Python
-Url:		http://pypi.python.org/pypi/blosc/
+Url:		https://pypi.python.org/pypi/blosc/
 BuildRequires:	python-devel
 
 %description
