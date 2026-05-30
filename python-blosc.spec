@@ -1,37 +1,42 @@
-%define	module	blosc
-%define rel		1
-%if %mdkversion < 201100
-%else
-%endif
+%define module blosc
 
+Name:		python-blosc
+Version:	1.11.4
+Release:	1
 Summary:	Blosc data compressor
-
-Name:		python-%{module}
-Version:	1.2.3
-Release:	2
-Source0:	http://pypi.python.org/packages/source/b/blosc/blosc-%{version}.tar.gz
 License:	BSD
 Group:		Development/Python
-Url:		https://pypi.python.org/pypi/blosc/
-BuildRequires:	python-devel
+URL:		https://pypi.python.org/pypi/blosc/
+Source0:	https://files.pythonhosted.org/packages/source/b/%{module}/%{module}-%{version}.tar.gz#/%{name}-%{version}.tar.gz
+
+BuildSystem:	python
+BuildRequires:	cmake
+BuildRequires:	ninja
+BuildRequires:	pkgconfig(blosc)
+BuildRequires:	pkgconfig(python)
+BuildRequires:	python%{pyver}dist(numpy)
+BuildRequires:	python%{pyver}dist(pip)
+BuildRequires:	python%{pyver}dist(py-cpuinfo)
+BuildRequires:	python%{pyver}dist(setuptools)
+BuildRequires:	python%{pyver}dist(scikit-build)
+BuildRequires:	python%{pyver}dist(wheel)
 
 %description
 Blosc is a high performance compressor optimized for binary data.
 
-%prep
-%setup -q -n %{module}-%{version}
+%prep -a
+# Remove bundled egg-info
+rm -rf %{module}.egg-info
 
-%build
-%__python setup.py build
-
-%install
-PYTHONDONTWRITEBYTECODE= %__python setup.py install --root=%{buildroot}
-
-%clean
+%build -p
+export CFLAGS="%{optflags}"
+export LDFLAGS="%{ldflags} -lpython%{pyver}"
+export BLOSC_DIR=%{_libdir}/blosc
+export USE_SYSTEM_BLOSC=1
 
 %files
-%doc LICENSES/BLOSC.txt
-%{py_platsitedir}/%{module}*
+%doc README.rst RELEASE_NOTES.rst
+%{python_sitearch}/%{module}*
 
 
 
