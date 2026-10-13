@@ -2,7 +2,7 @@
 
 Name:		python-blosc
 Version:	1.11.4
-Release:	1
+Release:	2
 Summary:	Blosc data compressor
 License:	BSD
 Group:		Development/Python
@@ -13,7 +13,7 @@ BuildSystem:	python
 BuildRequires:	cmake
 BuildRequires:	ninja
 BuildRequires:	pkgconfig(blosc)
-BuildRequires:	pkgconfig(python)
+BuildRequires:	pkgconfig(python3)
 BuildRequires:	python%{pyver}dist(numpy)
 BuildRequires:	python%{pyver}dist(pip)
 BuildRequires:	python%{pyver}dist(py-cpuinfo)
